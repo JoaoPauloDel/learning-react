@@ -1,34 +1,23 @@
 import { useState } from "react";
 
 const Contador = () => {
-    const [contador, setContador] = useState(1);
+    const [numero, setNumero] = useState(0);
 
-    const aumentar = () => {
-        setContador(contador + 1);
-    };
+    function incrementar() {
+        setNumero(numero + 1)
+    }
 
-    const diminuir = () => {
-        if (contador > 1) {
-            setContador(contador - 1);
-        }
-    };
+    function decrementar(){
+        setNumero(numero - 1)
+    }
     return (
-        <div className="flex items-center justify-center gap-4 mt-10">
-            <button
-                onClick={diminuir}
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-            >
-                -1
-            </button>
-            <span className="text-2xl font-bold">{contador}</span>
-            <button
-                onClick={aumentar}
-                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
-            >
-                +1
-            </button>
+        <div>
+            <h1>{numero}</h1>
+            <button onClick={incrementar} className="bg-black rounded px-4 text-white">+ 1</button>
+            <button onClick={decrementar} className="bg-black rounded px-4 text-white">- 1</button>
         </div>
+
     );
-};
+}
 
 export default Contador;
